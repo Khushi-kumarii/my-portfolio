@@ -1,13 +1,340 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1, h2, h3, p {
+  font-family: 'Prociono',sans-serif; /* Ensure headers and paragraphs use the same font */
+}
+body {
+  font-family:'Prociono',sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+.home{ display: flex;                /* Enable flexbox */
+  flex-direction: column;       /* Stack children vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  height: 100vh;                /* Make the section full height */
+  text-align: center;           /* Center text */
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #282c34;
+  padding: 1rem 0;
+  z-index: 1000;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li:hover {
+  color: #61dafb;
+}
+
+.section {
+  padding: 100px 0;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.home {
+  background-color: #f8f9fa;
+}
+
+.about {
+  background-color: #e9ecef;
+}
+
+.portfolio {
+  background-color: #dee2e6;
+}
+
+.contact {
+  background-color: #ced4da;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
+/* Common styling for all sections */
+.section {
+  padding: 100px 0;
+  min-height: 100vh;
+  text-align: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect */
+}
+
+/* Specific background images for each section */
+.home {
+  background-image: url('/src/images/1.jpg');
+}
+
+.about {
+  background-image: url('/src/images/about.jpg');
+}
+
+.portfolio {
+  background-image: url('/src/images/po.jpg');
+}
+
+.contact {
+  background-image: url('/src/images/foot.png');
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 3rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* To make text readable on images */
+}
+
+p {
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* To make text readable on images */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  /* Make sure the background images look good on smaller screens */
+  .section {
+    background-attachment: scroll; /* Disable parallax on small screens */
+  }
+}
+/* Other styles remain unchanged... */
+
+/* Add this new style for the card */
+.card {
+  background-color: white;       /* White background for the card */
+  color: black;                  /* Black text color */
+  padding: 20px;                 /* Padding inside the card */
+  border-radius: 10px;           /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  max-width: 600px;              /* Maximum width for the card */
+  margin: auto;                  /* Center the card */
+}
+
+/* Existing styles for the .about section */
+.about {
+  background-image: url('/src/images/about.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Parallax effect */
+  color: white;                 /* Default color for text */
+}
+
+/* Ensure the text remains readable on the white card */
+.card h1,
+.card p {
+  color: black;                 /* Ensure text color is black for readability */
+  text-shadow: none;            /* Remove text shadow for card text */
+}
+.skills-list {
+  list-style-type: disc;       /* Bullet points */
+  text-align: left;            /* Align text to the left */
+  margin: 20px auto;           /* Add margin and center the list */
+  padding: 0;                  /* Remove default padding */
+  max-width: 400px;            /* Limit the width of the list */
+}
+
+.skills-list li {
+  margin: 5px 0;               /* Space between bullet points */
+  font-size: 1.1rem;           /* Slightly larger font size for skills */
+  color: black;                /* Text color for the skills */
+}
+.divider {
+  border: none;                /* Remove default border */
+  height: 1px;                /* Set the height of the line */
+  background-color: #ccc;     /* Set color of the line */
+  margin: 20px 0;             /* Space above and below the line */
+  width: 80%;                  /* Set width of the line */
+  margin-left: auto;          /* Center the line */
+  margin-right: auto;         /* Center the line */
+}
+.portfolio-content {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out the image and projects */
+  align-items: center; /* Center items vertically */
+}
+.portfolio-image {
+  flex: 0 0 45%; /* Set width to 45% of the flex container */
+  margin-right: 30px; /* Add some spacing to the right */
+  background-image: url('/src/images/p.jpg'); /* Set background image */
+  background-size: contain; /* Change from cover to contain */
+  background-position: center; /* Center the image */
+  height: 400px; /* Set a specific height */
+  min-height: 300px; /* Set a minimum height */
+}
+
+.portfolio-image img {
+  max-width: 100%; /* Make sure the image is responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.projects {
+  flex: 1; /* Set width to 50% */
+  display: flex;
+  flex-direction: column; /* Stack projects vertically */
+}
+
+.project {
+  margin-top: 40px;
+  margin-bottom: 40px; /* Add space between project boxes */
+  padding: 15px; /* Adjust padding for project boxes */
+  border: 1px solid #ccc; /* Optional: add a border */
+  border-radius: 5px; /* Optional: round corners */
+  background-color: #f9f9f9; /* Optional: add a background color */
+}
+
+.project h2 {
+  margin-top: 0; /* Remove margin on top */
+}
+
+.project a {
+  display: inline-block; /* Make the link block-level */
+  margin-top: 10px; /* Add space above the link */
+  color: #007bff; /* Customize link color */
+  text-decoration: none; /* Remove underline */
+}
+
+.project a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+.p {
+  font-size: 2.5rem; /* Adjust the font size as needed */
+  padding-bottom: 30px; /* Space below the title */
+  text-align: center; /* Center the title */
+  color: #333; /* Change the color to match your theme */
+  /* text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); */
+  margin-top: -45px;
+}
+.project p {
+  color: #555; /* Set description color to a darker gray for better readability */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);  /* Remove text shadow */
+}
+.project h2 {
+  color:  #3e4042;/* Change title color to a shade of blue for better visibility */
+}
+
+.project p {
+  color: #555; /* Set description color to a darker gray for better readability */
+}
+
+/* Optional: Add a hover effect to the project titles */
+.project:hover h2 {
+  color: #0f1011; /* Change title color on hover */
+}
+
+.contact {
+  display: flex;                /* Enable flexbox */
+  flex-direction: column;      /* Stack children vertically */
+  justify-content: center;      /* Center content vertically */
+  align-items: center;          /* Center content horizontally */
+  background-color: #ced4da;
+  padding: 50px 0;             /* Reduce padding to make the section height smaller */
+  min-height: 60vh;            /* Set a smaller minimum height if needed */
+}
+
+.contact h1 {
+  margin-bottom: 10px;         /* Reduced margin for the title */
+  font-size: 2.5rem;           /* Adjust the font size as needed */
+  text-align: center;          /* Center the title */
+}
+
+.contact p {
+  font-size: 1rem;             /* Adjusted font size for better fit */
+  text-align: center;          /* Center the paragraph */
+}
+
+.social-media-icons {
+  display: flex;               /* Enable flexbox for social media icons */
+  justify-content: center;      /* Center icons horizontally */
+  margin-top: 20px;           /* Space above the icons */
+}
+
+.social-media-icons a {
+  margin: 0 10px;             /* Space between icons */
+  color: white;                /* Set the icon color to white */
+  font-size: 14px;             /* Adjust size as needed */
+  transition: color 0.3s;      /* Smooth color transition */
+}
+
+.social-media-icons a:hover {
+  color: #007bff;              /* Change color on hover */
+}
+.button {
+  display: inline-block; /* Makes the link behave like a block-level element */
+  padding: 10px 20px; /* Add padding for a button feel */
+  color: white; /* Text color */
+  background-color: #bfcedd; /* Button background color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transition for background color */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.button:hover {
+  background-color: #d5e1ec; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+.home p {
+  font-size: 17px; /* Adjust this size as needed */
+  margin-bottom: 20px; /* Add some space below the paragraph */
 }
